@@ -16,6 +16,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 LEVELS_DIR = os.path.join(BASE, "level")
 DOMAIN = "https://bustrafficfever.net"
 TODAY = "2026-08-29"
+TODAY_ISO = TODAY + "T00:00:00+00:00"
 
 LEVELS = [
     dict(n=1, vid='SX7MqFQnko0', diff='Beginner', focus='color matching', name='The First Match',
@@ -1127,11 +1128,11 @@ def thumbnail(vid):
 def jsonld(level, vid, title, desc, url, faqs):
     graph = [
         {"@type": "Article", "@id": url + "#article", "headline": title, "description": desc,
-         "author": {"@type": "Organization", "name": "Bus Traffic Fever Guide"},
-         "publisher": {"@type": "Organization", "name": "Bus Traffic Fever Guide"},
+         "author": {"@type": "Organization", "name": "Bus Traffic Fever Guide", "url": DOMAIN + "/"},
+         "publisher": {"@type": "Organization", "name": "Bus Traffic Fever Guide", "url": DOMAIN + "/"},
          "mainEntityOfPage": {"@type": "WebPage", "@id": url},
          "image": thumbnail(vid) if vid else DOMAIN + "/og-image.jpg",
-         "datePublished": TODAY, "dateModified": TODAY, "inLanguage": "en"},
+         "datePublished": TODAY_ISO, "dateModified": TODAY_ISO, "inLanguage": "en"},
     ]
     if vid:
         graph += [
@@ -1139,7 +1140,7 @@ def jsonld(level, vid, title, desc, url, faqs):
              "description": desc, "thumbnailUrl": thumbnail(vid),
              "contentUrl": "https://www.youtube.com/watch?v=%s" % vid,
              "embedUrl": "https://www.youtube-nocookie.com/embed/%s" % vid,
-             "uploadDate": TODAY},
+             "uploadDate": TODAY_ISO},
             {"@type": "ImageObject", "contentUrl": thumbnail(vid),
              "description": "Bus Traffic Fever Level %d walkthrough video thumbnail" % level},
         ]
