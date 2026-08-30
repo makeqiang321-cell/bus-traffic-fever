@@ -219,9 +219,19 @@ table { border-collapse: separate; border-spacing: 0; }
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.55fr);
   gap: 44px;
-  align-items: center;
+  align-items: stretch;
+}
+.hero-copy {
+  background: var(--paper-card);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 30px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .hero h1 {
   font-size: clamp(2.1rem, 5vw, 3.3rem);
@@ -293,79 +303,91 @@ table { border-collapse: separate; border-spacing: 0; }
 }
 .level-jump .hint { font-size: 0.82rem; color: var(--ink-faint); margin: 0; }
 
-/* hero visual — traffic signal motif */
+/* hero visual — gameplay preview phone (mobile puzzle) */
 .hero-visual {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
-.traffic-card {
+.gp-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   background: var(--paper-card);
   border: var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
 }
-.traffic-card .bar {
+.gp-bar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   padding: 11px 14px;
   border-bottom: 3px solid var(--ink);
   background: var(--paper-deep);
 }
-.traffic-card .bar .title {
+.gp-bar-title {
   font-family: var(--font-display);
   font-size: 0.9rem;
   letter-spacing: 0.03em;
   color: var(--ink-soft);
 }
-.traffic-lights {
-  display: flex;
-  gap: 6px;
-}
-.traffic-lights span {
-  width: 13px; height: 13px; border-radius: 50%;
+.gp-bar-tag {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.74rem;
+  color: var(--ink);
+  background: var(--accent-pale);
   border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 2px 10px;
+  white-space: nowrap;
 }
-.traffic-lights span:nth-child(1) { background: var(--signal-red); }
-.traffic-lights span:nth-child(2) { background: var(--accent); }
-.traffic-lights span:nth-child(3) { background: var(--signal-green); }
-
-.traffic-card .stage {
-  aspect-ratio: 4 / 3;
-  display: grid;
-  place-items: center;
-  background:
-    repeating-linear-gradient(0deg, oklch(0.30 0.01 70) 0 2px, transparent 2px 42px),
-    repeating-linear-gradient(90deg, oklch(0.30 0.01 70) 0 2px, transparent 2px 42px),
-    oklch(0.47 0.03 70);
-  color: #fff;
-  position: relative;
+.gp-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 13.5;
+  object-fit: cover;
+  background: oklch(0.30 0.01 70);
+  border-bottom: 3px solid var(--ink);
 }
-.traffic-card .stage .road {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, transparent 42%, oklch(0.36 0.02 70) 42%, oklch(0.36 0.02 70) 58%, transparent 58%);
-  opacity: 0.9;
-}
-.traffic-card .stage .bus-row {
-  position: relative;
-  z-index: 2;
+.gp-download-row {
   display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.2rem;
-  filter: drop-shadow(0 4px 0 oklch(0 0 0 / 0.35));
+  gap: 10px;
+  padding: 12px 14px;
+  margin-top: auto;
 }
-.traffic-card .stage .bus-row .pax { font-size: 1.4rem; }
-.traffic-card .caption {
+.gp-store {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.7rem;
+  line-height: 1.15;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.gp-store:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.gp-store .gp-store-ic {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.gp-store strong {
+  display: block;
+  font-family: var(--font-display);
   font-size: 0.86rem;
-  color: var(--ink-faint);
-  text-align: center;
-  padding: 9px 14px;
-  margin: 0;
-  border-top: 2px dashed oklch(0.80 0.03 70);
+  letter-spacing: 0.01em;
+  color: #fff;
 }
 
 /* ── Featured banners ──────────────────────────────────── */
