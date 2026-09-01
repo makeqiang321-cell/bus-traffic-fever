@@ -3,4 +3,4 @@ Allow: /
 Disallow: /js/
 Disallow: /__pycache__/
 
-Sitemap: https://bustrafficfever.net/sitemap.xml
+Sitemap: https://www.bustrafficfever.net/sitemap.xml

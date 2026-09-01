@@ -921,6 +921,34 @@ details.faq-item .faq-body a { font-weight: 700; }
 .method-steps li strong { font-family: var(--font-display); font-weight: 400; font-size: 1.02rem; }
 .method-steps li p { margin: 3px 0 0; font-size: 0.95rem; }
 
+.quick-answer {
+  background: var(--paper-card);
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+}
+.quick-answer .qa-label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--ink);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 10px;
+}
+.quick-answer p {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--ink);
+  max-width: 68ch;
+}
+
 .opening-hint {
   background: var(--accent-pale);
   border: var(--border);

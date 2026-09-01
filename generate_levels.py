@@ -14,7 +14,7 @@ import json, os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 LEVELS_DIR = os.path.join(BASE, "level")
-DOMAIN = "https://bustrafficfever.net"
+DOMAIN = "https://www.bustrafficfever.net"
 TODAY = "2026-08-29"
 TODAY_ISO = TODAY + "T00:00:00+00:00"
 
@@ -1192,7 +1192,7 @@ FOOTER = """  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a class="footer-brand" href="https://bustrafficfever.net/">Bus Traffic Fever</a>
+          <a class="footer-brand" href="https://www.bustrafficfever.net/">Bus Traffic Fever</a>
           <p style="font-size:0.94rem">Level walkthroughs, dispatch-order tips, and video answers for the GOODROID color-matching parking puzzle — so you can clear every board without wasting moves.</p>
         </div>
         <div>
@@ -1342,6 +1342,15 @@ def build(d):
       </div>
     </section>
 
+    <section class="section" id="quick-answer">
+      <div class="container">
+        <div class="quick-answer">
+          <span class="qa-label">⚡ Quick Answer</span>
+          <p>%s</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="guide">
       <div class="container">
         <article class="level-body" style="padding-top:0">
@@ -1352,7 +1361,6 @@ def build(d):
           <p>%s</p>
 
           <h2 class="block-h2">Step-by-Step Walkthrough</h2>
-          <p>%s</p>
           <h3 class="block-h3">%s</h3>
           <ol class="method-steps">
             %s
@@ -1410,9 +1418,9 @@ def build(d):
         n,
         title, d["intro"],
         n, d["diff"], d["focus"],
+        d["summary"],
         n, d["name"], d["beat"],
         d["name"], n, d["whatis"],
-        d["summary"],
         d["phase1_title"], steps_html(d["phase1_steps"]),
         d["mid_title"], steps_html(d["mid_steps"]),
         d["phase2_title"], steps_html(d["phase2_steps"]),
