@@ -11,11 +11,12 @@ Video IDs are public YouTube references (Offline Gaming channel); the thumbnail
 honest — we never invent exact bus coordinates we have not verified.
 """
 import json, os
+from datetime import date
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 LEVELS_DIR = os.path.join(BASE, "level")
 DOMAIN = "https://www.bustrafficfever.net"
-TODAY = "2026-08-29"
+TODAY = date.today().isoformat()
 TODAY_ISO = TODAY + "T00:00:00+00:00"
 
 LEVELS = [
